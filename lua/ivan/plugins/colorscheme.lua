@@ -4,7 +4,7 @@ return {
   priority = 1000,
   config = function()
     local transparent = true
-
+    
     local bg = "#001628"
     local bg_dark = "#001423"
     local bg_highlight = "#143652"
@@ -34,6 +34,7 @@ return {
         colors.fg_sidebar = fg_dark
       end
     })
+
     
     -- require("material").setup({
     --   contrast = {
