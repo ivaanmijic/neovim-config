@@ -1,55 +1,86 @@
 return {
-  "folke/tokyonight.nvim",
-  -- "marko-cerovac/material.nvim",
+  "marko-cerovac/material.nvim",
   priority = 1000,
   config = function()
-    local transparent = true
-    
-    local bg = "#001628"
-    local bg_dark = "#001423"
-    local bg_highlight = "#143652"
-    local bg_search = "#0A64AC"
-    local bg_visual = "#275378"
-    local fg = "#CBE0F0"
-    local fg_dark = "#B4D0E9"
-    local fg_gutter = "#627E97"
-    local border = "#547998"
+    vim.g.material_style = "deep ocean"
+    require('material').setup({
 
-    require("tokyonight").setup({
-      style = "night",
-      on_colors = function(colors)
-        colors.bg = bg
-        colors.bg_dark = bg_dark
-        colors.bg_float = bg_dark
-        colors.bg_highlight = bg_highlight
-        colors.bg_popup = bg_dark
-        colors.bg_search = bg_search
-        colors.bg_sidebar = bg_dark
-        colors.bg_statusline = bg_dark
-        colors.bg_visual = bg_visual
-        colors.fg = fg
-        colors.fg_dark = fg_dark
-        colors.fg_float = fg
-        colors.fg_gutter = fg_gutter
-        colors.fg_sidebar = fg_dark
-      end
+    contrast = {
+        terminal = false, -- Enable contrast for the built-in terminal
+        sidebars = false, -- Enable contrast for sidebar-like windows ( for example Nvim-Tree )
+        floating_windows = false, -- Enable contrast for floating windows
+        cursor_line = false, -- Enable darker background for the cursor line
+        lsp_virtual_text = false, -- Enable contrasted background for lsp virtual text
+        non_current_windows = false, -- Enable contrasted background for non-current windows
+        filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
+    },
+
+    styles = { -- Give comments style such as bold, italic, underline etc.
+        comments = { italic = true },
+        strings = { italic = true },
+        keywords = { bold = true },
+        functions = { --[[ bold = true ]] },
+        variables = { --[[ bold = true  ]]},
+        operators = {},
+        types = {},
+    },
+
+    plugins = { -- Uncomment the plugins that you use to highlight them
+        -- Available plugins:
+        -- "coc",
+        -- "colorful-winsep",
+        -- "dap",
+        -- "dashboard",
+        -- "eyeliner",
+        -- "fidget",
+        -- "flash",
+        -- "gitsigns",
+        -- "harpoon",
+        -- "hop",
+        -- "illuminate",
+        -- "indent-blankline",
+        -- "lspsaga",
+        -- "mini",
+        -- "neogit",
+        -- "neotest",
+        -- "neo-tree",
+        -- "neorg",
+        -- "noice",
+        -- "nvim-cmp",
+        -- "nvim-navic",
+        -- "nvim-tree",
+        -- "nvim-web-devicons",
+        -- "rainbow-delimiters",
+        -- "sneak",
+        -- "telescope",
+        -- "trouble",
+        -- "which-key",
+        -- "nvim-notify",
+    },
+
+    disable = {
+        colored_cursor = false, -- Disable the colored cursor
+        borders = false, -- Disable borders between vertically split windows
+        background = false, -- Prevent the theme from setting the background (NeoVim then uses your terminal background)
+        term_colors = false, -- Prevent the theme from setting terminal colors
+        eob_lines = false -- Hide the end-of-buffer lines
+    },
+
+    high_visibility = {
+        lighter = false, -- Enable higher contrast text for lighter style
+        darker = false -- Enable higher contrast text for darker style
+    },
+
+    lualine_style = "stealth", -- Lualine style ( can be 'stealth' or 'default' )
+
+    async_loading = true, -- Load parts of the theme asynchronously for faster startup (turned on by default)
+
+    custom_colors = nil, -- If you want to override the default colors, set this to a function
+
+    custom_highlights = {}, -- Overwrite highlights with your own
     })
-
     
-    -- require("material").setup({
-    --   contrast = {
-    --     sidebars = true,
-    --     floating_windows = true,
-    --   },
-    --   styles = {
-    --     comments = { italic = true },
-    --     variables = { italic = true },
-    --   },
-    -- })
-
-    vim.cmd("colorscheme tokyonight")
-    -- vim.cmd("colorscheme material")
-
+    vim.cmd("colorscheme material")
     vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
   end
 }
