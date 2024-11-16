@@ -14,16 +14,16 @@ return {
         non_current_windows = false, -- Enable contrasted background for non-current windows
         filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
     },
-
-    styles = { -- Give comments style such as bold, italic, underline etc.
-        comments = { italic = true },
-        strings = { italic = true },
-        keywords = { bold = true },
-        functions = { --[[ bold = true ]] },
-        variables = { --[[ bold = true  ]]},
-        operators = {},
-        types = {},
-    },
+    --
+    -- styles = { -- Give comments style such as bold, italic, underline etc.
+    --     comments = { italic = true },
+    --     strings = { italic = true },
+    --     keywords = { bold = true },
+    --     functions = { --[[ bold = true ]] },
+    --     variables = { --[[ bold = true  ]]},
+    --     operators = {},
+    --     types = {},
+    -- },
 
     plugins = { -- Uncomment the plugins that you use to highlight them
         -- Available plugins:
@@ -79,7 +79,7 @@ return {
 
     custom_highlights = {}, -- Overwrite highlights with your own
     })
-    
+   
     vim.cmd("colorscheme material")
     vim.cmd [[hi Normal guibg=NONE ctermbg=NONE]]
   end
