@@ -85,6 +85,30 @@ return {
           capabilities = capabilities,
         })
       end,
+
+      ["texlab"] = function()
+        lspconfig["texlab"].setup({
+          capabilities = capabilities,
+          settings = {
+            texlab = {
+              build = {
+                executable = "latexmk",
+                args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+                onSave = true,
+              },
+              forwardSearch = {
+                executable = "okular",
+                args = { "--synctex-forward", "%l:1:%f", "%p" },
+              },
+              chktex = {
+                onEdit = true,
+                onOpenAndSave = true,
+              },
+            },
+          },
+        })
+      end,
+
       ["svelte"] = function()
         -- configure svelte server
         lspconfig["svelte"].setup({
@@ -134,4 +158,3 @@ return {
     })
   end,
 }
-
