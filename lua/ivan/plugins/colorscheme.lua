@@ -18,8 +18,6 @@ return {
       styles = { -- Give comments style such as bold, italic, underline etc.
         comments = { italic = true },
         keywords = { bold = true },
-        functions = { bold = true, italic = true },
-        variables = { bold = true },
       },
 
       plugins = { -- Uncomment the plugins that you use to highlight them
